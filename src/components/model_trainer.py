@@ -41,7 +41,43 @@ class ModelTrainer:
                  "XGBRegressor": XGBRegressor(), 
                  "AdaBoost Regressor": AdaBoostRegressor()
             }
-            model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models)
+            params = {
+                "Linear Regression": {},
+                "Lasso": {
+                    'alpha': [0.1, 0.5, 1.0, 2.0]
+                    # Add other hyperparameters here if needed
+                },
+                "Ridge": {
+                    'alpha': [0.1, 0.5, 1.0, 2.0]
+                    # Add other hyperparameters here if needed
+                },
+                "K-Neighbors Regressor": {
+                    'n_neighbors': [3, 5, 7, 10],
+                    'weights': ['uniform', 'distance'],
+                    'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute']
+                    # Add other hyperparameters here if needed
+                },
+                "Decision Tree": {
+                    'criterion': ['mse', 'friedman_mse', 'mae', 'poisson'],
+                    # Add other hyperparameters here if needed
+                },
+                "Random Forest Regressor": {
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    # Add other hyperparameters here if needed
+                },
+                "XGBRegressor": {
+                    'learning_rate': [.1, .01, .05, .001],
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    # Add other hyperparameters here if needed
+                },
+                "AdaBoost Regressor": {
+                    'learning_rate': [.1, .01, 0.5, .001],
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    # Add other hyperparameters here if needed
+                }
+
+}
+            model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models,param=params)
 
             best_model_score=max(sorted(model_report.values()))
 
