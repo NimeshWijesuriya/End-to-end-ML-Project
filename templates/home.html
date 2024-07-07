@@ -1,0 +1,133 @@
+<html>
+<body>
+    <div class="login">
+       <h1>House Price Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>House Price Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">mainroad</label>
+            <select class="form-control" name="mainroad" placeholder="Enter Your input" required>
+                <option class="placeholder" selected disabled value="">Select your input</option>
+                <option value="yes">
+                    yes
+                </option>
+                <option value="no">
+                    no
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">guestroom</label>
+            <select class="form-control" name="guestroom" placeholder="Enter you input" required>
+                <option class="placeholder" selected disabled value="">Select guestroom</option>
+                <option value="yes">
+                    yes
+                </option>
+                <option value="no">
+                    no
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">prefarea</label>
+            <select class="form-control" name="prefarea" placeholder="Enter you input" required>
+                <option class="placeholder" selected disabled value="">Select prefarea</option>
+                <option value="yes">
+                    yes
+                </option>
+                <option value="no">
+                    no
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">furnishingstatus</label>
+            <select class="form-control" name="furnishingstatus" placeholder="Enter you input" required>
+                <option class="placeholder" selected disabled value="">Select value</option>
+                <option value="furnished">
+                    furnished
+                </option>
+                <option value="semi-furnished">
+                    semi-furnished
+                </option>
+                <option value="unfurnished">
+                    unfurnished
+                </option>
+            </select>
+        </div>
+    
+        <div class="mb-3">
+            <label class="form-label">basement</label>
+            <select class="form-control" name="basement"
+                placeholder="Enter you input" required>
+                <option class="placeholder" selected disabled value="">Select input</option>
+                <option value="yes">
+                    yes
+                </option>
+                <option value="no">
+                    no
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">hotwaterheating</label>
+            <select class="form-control" name="hotwaterheating" placeholder="Enter you input" required>
+                <option class="placeholder" selected disabled value="">Select hotwaterheating Type</option>
+                <option value="yes">
+                    yes
+                </option>
+                <option value="no">
+                    no
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">airconditioning</label>
+            <select class="form-control" name="airconditioning" placeholder="Enter you Course"
+                required>
+                <option class="placeholder" selected disabled value="">Select airconditioning</option>
+                <option value="yes">
+                    yes
+                </option>
+                <option value="no">
+                    no
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">parking</label>
+            <input class="form-control" type="number" name="parking"
+                placeholder="Enter your parking space" min='0' max='4' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">bedrooms</label>
+            <input class="form-control" type="number" name="bedrooms"
+                placeholder="Enter bedrooms" min='1' max='6' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">bathrooms</label>
+            <input class="form-control" type="number" name="bathrooms"
+                placeholder="Enter bathrooms" min='1' max='4' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">stories</label>
+            <input class="form-control" type="number" name="stories"
+                placeholder="Enter stories" min='1' max='4' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">area</label>
+            <input class="form-control" type="number" name="area"
+                placeholder="Enter area" min='1000' max='20000' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your price" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
